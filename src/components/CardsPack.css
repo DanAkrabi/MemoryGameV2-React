@@ -1,0 +1,28 @@
+/* .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+  grid-gap: 1em;
+  padding: 0.7em;
+  justify-items: center;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+} */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+  grid-gap: 1em;
+  padding: 0.7em;
+  justify-content: space-between;
+  align-content: start;
+  border: 2px solid red;
+  background-color: rgba(82, 82, 82, 0.7);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
