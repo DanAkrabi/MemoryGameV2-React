@@ -26,7 +26,7 @@ export default function Cards({ card, onCardClicked, isFlipped }) {
         className="card-image card-image-front"
       />
       <img
-        src="/images/backwards.png"
+        src="./images/backwards.png"
         alt="Card back"
         className="card-image card-image-back"
       />

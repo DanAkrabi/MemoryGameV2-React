@@ -7,11 +7,11 @@ function createCards(cardsAmount) {
   for (let i = 1; i <= cardsAmount; i++) {
     cardsArray.push({
       id: i,
-      imgSrc: `/images/card${i}.png`,
+      imgSrc: `./dist/images/card${i}.png`,
     });
     cardsArray.push({
       id: cardsAmount + i,
-      imgSrc: `/images/card${i}.png`,
+      imgSrc: `./dist/images/card${i}.png`,
     });
   }
   return cardsArray;
@@ -197,7 +197,7 @@ function App() {
     if (!isNaN(amount)) {
       dispatch({ type: "set-cards-amount", payload: amount });
     }
-  };
+  };  
 
   function handleCardClicked(id) {
     dispatch({ type: "flip-card", payload: id });
@@ -225,39 +225,48 @@ function App() {
     <>
       {!state.isGameStarted && (
         <div className="opening-container">
-          {state.playersArray.map((player, index) => (
-            <input
-              className="input-players-map"
-              key={index}
-              type="text"
-              placeholder={`Player ${index + 1}`}
-              value={player.name}
-              onChange={(event) => handlePlayersArray(index, event)}
-            />
-          ))}
-          <div className="cards-amount-container">
-            <p className="cards-amount-text">Cards amount:</p>
-            <input
-              placeholder="Choose cards amount"
-              type="number"
-              min="1"
-              max="30"
-              value={state.cardsAmount}
-              onChange={handleCardsAmountChange}
-              className="input-cards-amount"
-            />
+          <div className="players-cards-input-container">
+            <div className="input-players-amount-container">
+              <div className="players-text-input-container">
+                <p className="input-players-amount-text">
+                  Choose players amount:
+                </p>
+                <input
+                  className="input-players-amount"
+                  placeholder="Choose players amount"
+                  type="number"
+                  min="1"
+                  max="4"
+                  value={state.playersAmount}
+                  onChange={handlePlayersAmount}
+                />
+              </div>
+            </div>
+
+            <div className="cards-amount-container">
+              <p className="cards-amount-text">Cards amount:</p>
+              <input
+                className="input-cards-amount"
+                placeholder="Choose cards amount"
+                type="number"
+                min="3"
+                max="30"
+                value={state.cardsAmount}
+                onChange={handleCardsAmountChange}
+              />
+            </div>
           </div>
-          <div className="input-players-amount-container">
-            <p className="input-players-amount-text"> Choose players amount:</p>
-            <input
-              className="input-players-amount"
-              placeholder="Choose players amount"
-              type="number"
-              min="1"
-              max="4"
-              value={state.playersAmount}
-              onChange={handlePlayersAmount}
-            />
+          <div className="input-names-container">
+            {state.playersArray.map((player, index) => (
+              <input
+                className="input-players-map"
+                key={index}
+                type="text"
+                placeholder={`Player ${index + 1}`}
+                value={player.name}
+                onChange={(event) => handlePlayersArray(index, event)}
+              />
+            ))}
           </div>
           <button
             className={state.isGameStarted ? "btn-start-active" : "btn-start"}
@@ -280,12 +289,18 @@ function App() {
 
       {state.isGameStarted && (
         <>
-          <div>
-            {state.playersArray
-              .map((player) => `${player.name} (Score: ${player.score})`)
-              .join(", ")}
+          <div className="names-timer-container">
+            <div className="timer-container">
+              <div className="timer">
+                <strong>Time</strong>: {time}
+              </div>
+            </div>
+            <div className="players-active">
+              {state.playersArray
+                .map((player) => `${player.name}: ${player.score}`)
+                .join(", ")}
+            </div>
           </div>
-          <div className="timer">Time: {time} </div>
           <ul className="card-container">
             <CardsPack
               cards={state.cards}

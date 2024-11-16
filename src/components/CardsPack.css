@@ -18,8 +18,8 @@ ul {
   padding: 0.7em;
   justify-content: space-between;
   align-content: start;
-  border: 2px solid red;
-  background-color: rgba(82, 82, 82, 0.7);
+  /* background-color: rgba(117, 109, 109, 0.7); */
+  /* border: solid 2px; */
 }
 
 ul {

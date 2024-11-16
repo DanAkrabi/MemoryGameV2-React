@@ -6,72 +6,125 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
 }
-
-.opening-container {
-  display: grid;
-  grid-template-columns: 300px 250px;
-  grid-template-rows: 200px 50px;
-  grid-template-areas:
-    "players cards"
-    "btn btn";
-  background-color: rgb(124, 122, 122, 0.7);
-  border: solid red 2px;
-  left: 50px;
-  position: absolute;
-  top: 100px;
+::placeholder {
+  color: black;
 }
 
+.opening-container {
+  width: 700px;
+  height: 300px;
+  justify-self: center;
+  background-color: rgb(124, 122, 122, 0.83);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+  border-radius: 10px;
+  margin-top: 70px;
+}
 .input-cards-amount {
-  width: 25px;
-  height: 20px;
-  position: absolute;
-  top: 12.5px;
-  left: 100px;
+  height: 25px;
+  background-color: transparent;
+  width: 30px;
+  border-radius: 9px;
 }
 
 .cards-amount-container {
   grid-area: cards;
-  background-color: rgb(0, 0, 0, 0.7);
+  /* background-color: rgb(0, 0, 0, 0.7); */
   height: 50px;
   width: 180px;
-  position: relative;
-  top: 50px;
+  /* position: relative; */
+  /* top: 50px; */
+  display: flex;
+  align-items: baseline;
 }
 
 .cards-amount-text {
-  position: absolute;
+  font-size: 22px;
 }
 
-.input-players-amount {
-  grid-area: players;
-  width: 20px;
-  height: 20px;
-  /* background-color: rgb(255, 255, 255, 0.7); */
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  position: absolute;
+.players-text-input-container {
+  display: flex;
+  align-items: baseline;
+  font-size: 22px;
+}
+.input-names-container {
+  display: flex;
+  gap: 10px;
+  width: 270px;
+  margin-top: 20px;
+  height: 100px;
+  margin-bottom: 78px;
+  justify-content: center;
 }
 
 .input-players-amount-container {
-  background-color: blue;
+  /* background-color: rgb(0, 0, 0, 0.7); */
+  display: flex;
+  flex-direction: column;
+  grid-area: players;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.input-players-amount {
+  width: 27px;
+  height: 25px;
+  background-color: transparent;
+  border-radius: 9px;
 }
 
 .input-players-map {
   grid-area: players;
-  width: 40px;
+  width: 50px;
   height: 20px;
-  background-color: aqua;
-  top: 40px;
-  position: absolute;
+  background-color: transparent;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  border-radius: 7px;
 }
 
 .btn-start {
-  grid-template-areas: btn;
   position: absolute;
-  left: 10px;
+  bottom: 25px;
+  /* background-color: transparent; */
+  background-color: rgb(155, 151, 151);
+  border-radius: 7px;
+  /* border: none; */
+
+  height: 30px;
+  cursor: pointer;
+  transition: box-shadow 0.4s;
+}
+
+.btn-start:hover {
+  box-shadow: 0 0 15px;
 }
 
 .btn-start-active {
-  grid-template-areas: btn;
-  position: absolute;
   left: 10px;
+}
+
+.players-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.timer-container {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.names-timer-container {
+  height: 66px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
 }
